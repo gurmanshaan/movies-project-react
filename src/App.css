@@ -1,38 +1,264 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background: #0f171e;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.tab {
+  background-color: #f1f1f1;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.tabBtn {
+  border: none;
+  padding: 0px 10px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  background: none;
+  color: #0f171e;
+}
+
+.firsttab :hover {
+  background-color: #0f171e;
+  color: #f1f1f1;
+}
+.secondtab :hover {
+  background-color: #0f171e;
+  color: #f1f1f1;
+}
+
+.heading {
+  background-color: #f1f1f1;
+  height:50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.logo {
+  color: #0f171e;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  flex-wrap: wrap;
+}
+
+.movieTitle {
+  margin: 5px;
+}
+
+.movieYear {
+  margin: 5px;
+}
+
+input {
+  height: 20px;
+  width: 250px;
+}
+
+label {
+  font-size: large;
+  color: white;
+}
+
+.searchBtn {
+  margin: 5px;
+}
+
+#srch,
+#infoBtn {
+  padding: 10px;
+  background-color: #555555;
+  border: none;
+  color: white;
+  font-size: 16px;
+}
+.output {
+  margin: 20px 40px;
+}
+
+.movie-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 40px 0px;
+  color: #ffffff;
+  font-weight: 400;
+  background: #0f171e;
+  border: 1px solid white;
+  border-radius: 0.2rem;
+  text-align: center;
+}
+
+.section-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+img {
+  height: 300px;
+}
+
+.section-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-title {
+  font-size: 2.5rem;
+}
+
+.movie-rating {
+  display: flex;
+  margin-top: 20px;
+  color: #79b8f3;
+}
+
+.movie-rating span {
+  margin: 10px 10px;
+}
+
+.movie-plot {
+  margin-top: 20px;
+  line-height: 1.8rem;
+  text-align: center;
+}
+
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-info div,
+span {
+  color: #79b8f3;
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+.info {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.infoBtn {
+  padding: 10px;
+  background-color: #555555;
+  border: none;
   color: white;
+  text-align: center;
+  font-size: 16px;
 }
 
-.App-link {
-  color: #61dafb;
+.modal {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  background: rgba(49, 49, 49, 0.8);
+  overflow: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.overlay {
+  margin: 20px;
+}
+
+#closeBtn {
+  padding: 5px;
+  background: none;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+}
+
+.close-modal {
+  position: absolute;
+  top: 13px;
+  right: 17px;
+}
+
+@media (max-width: 576px) {
+.logo{
+  font-size: 1.8rem;
+}
+.tab{
+  justify-content: space-evenly;
+}
+.tabBtn{
+  font-size: 1.5rem;
+}
+  .movieTitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .movieYear {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  input {
+    height: 28px;
+    width: 280px;
+  }
+
+  img {
+    height: 200px;
+  }
+
+  .movie-title {
+    font-size: 2rem;
+    margin-bottom: 5px;
+  }
+
+  .movie-plot {
+    font-size:1rem;
+    line-height: 1.5rem;
+  }
+
+  .movie-rating{
+    flex-direction: column;
+    margin-top: 0px;
+  }
+
+  .movie-rating span {
+    margin: 7px;
   }
 }
