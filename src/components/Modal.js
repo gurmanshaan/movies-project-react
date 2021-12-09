@@ -1,65 +1,78 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import image from "../notavailable.jpeg";
 
-function Modal({ content, closeModal }) {
+function Modal(props) {
+  const [movieInfo, setMovieInfo] = useState();
+  const { selectedMovie } = props;
+
+  useEffect(() => {
+    axios
+      .get(`https://www.omdbapi.com/?i=${selectedMovie}&apikey=35d72fda`)
+      .then((response) => setMovieInfo(response.data));
+  }, [selectedMovie]);
   return (
     <div className="modal">
       <div className="overlay">
-        <div className="movie-section">
-          <div className="close">
+      <div className="movie-section">
+      {movieInfo ? (
+        <>
+             <div className="close">
             <button
               id="closeBtn"
               className="close-modal"
-              onClick={() => {
-                closeModal(false);
-              }}
+              onClick={() => props.onMovieSelect()}
             >
               X
             </button>
-          </div>
-          <div className="section-right">
-            <img
-              src={content[0].Poster === "N/A" ? image : content[0].Poster}
-              alt={content[0].Title}
-            />
+            </div>
+            <div className="section-right">
+          <img
+            src={movieInfo.Poster === "N/A" ? image : movieInfo.Poster}
+           
+            alt={movieInfo.Title}/>
           </div>
           <div className="section-left">
-            <div className="movie-title">{content[0].Title}</div>
+            <div className="movie-title">{movieInfo.Title}</div>
             <div className="movie-rating">
-              <span>IMDB Rating : {content[0].imdbRating}</span>
-              <span>IMDB Votes :{content[0].imdbVotes}</span>
-              <span>Runtime : {content[0].Runtime}</span>
-              <span>Year : {content[0].Year}</span>
+              <span>IMDB Rating : {movieInfo.imdbRating}</span>
+              <span>IMDB Votes :{movieInfo.imdbVotes}</span>
+              <span>Runtime : {movieInfo.Runtime}</span>
+              <span>Year : {movieInfo.Year}</span>
             </div>
-            <div className="movie-plot">{content[0].Plot}</div>
+            <div className="movie-plot">{movieInfo.Plot}</div>
             <div className="movie-info">
               <div>
                 <span>Director :</span>
-                <span>{content[0].Director}</span>
+                <span>{movieInfo.Director}</span>
               </div>
               <div>
                 <span>Stars :</span>
-                <span>{content[0].Actors}</span>
+                <span>{movieInfo.Actors}</span>
               </div>
               <div>
                 <span>Generes :</span>
-                <span>{content[0].Genre}</span>
+                <span>{movieInfo.Genre}</span>
               </div>
               <div>
                 <span>Languages :</span>
-                <span>{content[0].Language}</span>
+                <span>{movieInfo.Language}</span>
               </div>
               <div>
                 <span>Awards : </span>
-                <span>{content[0].Awards}</span>
+                <span>{movieInfo.Awards}</span>
               </div>
               <div>
                 <span>Box Office : </span>
-                <span>{content[0].imdbRating > 7 ? "HIT" : "FLOP"}</span>
+                <span>{movieInfo.imdbRating > 7 ? "HIT" : "FLOP"}</span>
               </div>
             </div>
-          </div>
-        </div>
+            </div>
+        </>
+      ) : (
+        "Loading..."
+      )}
+    </div>
       </div>
     </div>
   );
