@@ -2,9 +2,6 @@ import React from "react";
 import image from "../notavailable.jpeg";
 
 const MovieItem = ({movie}) => {
-    // console.log(Array.isArray(movie));
-
-    // console.log(movie);
   return (
     <>
       {movie.map((res) => {

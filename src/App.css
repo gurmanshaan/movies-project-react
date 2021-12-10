@@ -249,10 +249,10 @@ span {
 }
 .coverimage {
   object-fit: cover;
-  height: 362px;
+  height: 350px;
 }
 .moviename {
-  font-size: 18px;
+  font-size: 1.3rem;
   font-weight: 600;
   margin: 15px 0;
   white-space: nowrap;
@@ -261,12 +261,12 @@ span {
   text-align: center;
 }
 .infocolumn {
+  font-size: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 .movieinfo {
-  font-size: 16px;
   font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
@@ -278,32 +278,48 @@ span {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px;
 }
-
-.prev,
-.next {
-  background: #fff;
+.paginationItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
   border: none;
-  padding: 10px;
-  color: blue;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
-  margin: 10px 10px;
+  padding: 0px 5px;
+  height: 45px;
+  margin: 0 5px;
   cursor: pointer;
+  font-size: 1.5rem;
+  color:#fff;
 }
 
-.prev.disabled,
-.next.disabled {
+.paginationItem:hover {
+  color: #141414;
+  background: #fff;
+}
+
+.paginationItem span {
+  text-align: center;
+}
+.paginationItem.active {
+  color: #141414;
+  background: #fff;
+  pointer-events: none;
+}
+
+.paginationItem.disabled {
   pointer-events: none;
   box-shadow: none;
   color: #999;
 }
 
-
 @media (max-width: 576px) {
   .logo {
     font-size: 1.5rem;
   }
-  .heading{
+  .heading {
     padding-left: 10px;
   }
   .tab {
@@ -354,5 +370,21 @@ span {
 
   .movie-rating span {
     margin: 7px;
+  }
+
+  .paginationItem{
+    font-size: 1.3rem;
+  }
+
+  .moviecontainer{
+   width:250px;
+    padding: 5px;
+  }
+
+  .moviename{
+    font-size: 1rem;
+  }
+  .infocolumn{
+    font-size: 0.8rem;
   }
 }

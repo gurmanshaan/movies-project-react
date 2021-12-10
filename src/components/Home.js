@@ -24,10 +24,12 @@ function Home() {
       } else {
         setMovies([]);
         setTotalResults(0);
+        setCurrentPage(1);
       }
     } else {
       setMovies([]);
       setTotalResults(0);
+      setCurrentPage(1);
     }
   };
 
@@ -35,7 +37,7 @@ function Home() {
     getMovieRequest(movieTitle, pageNumber);
   };
 
-  const numberOfPages = Math.floor(totalResults / 10);
+  const numberOfPages = Math.ceil(totalResults / 10);
 
   const handleKeyDown = (e) => {
     if (e.key === " " && movieTitle.length === 0) {
@@ -88,11 +90,12 @@ function Home() {
           </div>
           {totalResults > 10 ? (
             <Pagination
+            totalResults = {totalResults}
               data={movies}
               pages={numberOfPages}
               nextPage={nextPage}
               currentPage={currentPage}
-              pageLimit={0}
+              pageLimit={5}
               dataLimit={10}
             />
           ) : (
